@@ -17,11 +17,14 @@ namespace RegularExpression
             string? email = Console.ReadLine();
             Console.WriteLine("Enter your phone number: ");
             string? phoneNumber = Console.ReadLine();
-            if (name != null && email != null && phoneNumber != null)
+            Console.WriteLine("Enter your password: ");
+            string? password = Console.ReadLine();
+            if (name != null && email != null && phoneNumber != null && password != null)
             {
                 EnterName(name);
                 EnterEmail(name);
                 EnterPhoneNumber(phoneNumber);
+                EnterPassword(password);
             }
         }
         public static void EnterName(string name)
@@ -63,6 +66,19 @@ namespace RegularExpression
             } else
             {
                 Console.WriteLine("invalid Number formate");
+            }
+        }
+
+        public static void EnterPassword(string password)
+        {
+            string pattern = "^[a-zA-Z0-9]{8,16}$";
+            Regex regex = new(pattern);
+            if (regex.IsMatch(password))
+            {
+                Console.WriteLine($"Your password is {password}");
+            } else
+            {
+                Console.WriteLine("Invalid Password");
             }
         }
     }
