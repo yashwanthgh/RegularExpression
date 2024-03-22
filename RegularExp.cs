@@ -19,11 +19,12 @@ namespace RegularExpression
             string? phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter your password: ");
             string? password = Console.ReadLine();
+
             if (name != null && email != null && phoneNumber != null && password != null)
             {
-                EnterName(name);
-                EnterEmail(name);
-                EnterPhoneNumber(phoneNumber);
+                //EnterName(name);
+                //EnterEmail(name);
+                //EnterPhoneNumber(phoneNumber);
                 EnterPassword(password);
             }
         }
@@ -73,7 +74,8 @@ namespace RegularExpression
         public static void EnterPassword(string password)
         {
             // ?=.* ensures zero or more and [A-Z] ensures atlist 1 uppercase
-            string pattern = @"^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,16}$";
+            // using ^ am excluding all the existing pattern and \S eleminate empty space 
+            string pattern = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])[a-zA-Z0-9]{8,16}\S$";
             Regex regex = new(pattern);
             if (regex.IsMatch(password))
             {
