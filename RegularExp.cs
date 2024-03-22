@@ -15,10 +15,13 @@ namespace RegularExpression
             string? name = Console.ReadLine();
             Console.WriteLine("Enetr your email: ");
             string? email = Console.ReadLine();
-            if (name != null && email != null)
+            Console.WriteLine("Enter your phone number: ");
+            string? phoneNumber = Console.ReadLine();
+            if (name != null && email != null && phoneNumber != null)
             {
                 EnterName(name);
                 EnterEmail(name);
+                EnterPhoneNumber(phoneNumber);
             }
         }
         public static void EnterName(string name)
@@ -50,6 +53,17 @@ namespace RegularExpression
             }
         }
 
-
+        public static void EnterPhoneNumber(string phoneNumber)
+        {
+            string pattern = "^[0-9]{2}\\s[0-9]{10}$";
+            Regex regex = new(pattern);
+            if (regex.IsMatch(phoneNumber))
+            {
+                Console.WriteLine($"Your phone number is {phoneNumber}");
+            } else
+            {
+                Console.WriteLine("invalid Number formate");
+            }
+        }
     }
 }
