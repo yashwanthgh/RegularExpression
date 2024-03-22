@@ -71,7 +71,8 @@ namespace RegularExpression
 
         public static void EnterPassword(string password)
         {
-            string pattern = "^[a-zA-Z0-9]{8,16}$";
+            // ?=.* ensures zero or more and [A-Z] ensures atlist 1 uppercase
+            string pattern = @"^(?=.*[A-Z])[a-zA-Z0-9]{8,16}$";
             Regex regex = new(pattern);
             if (regex.IsMatch(password))
             {
