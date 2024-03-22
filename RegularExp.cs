@@ -63,7 +63,8 @@ namespace RegularExpression
             if (regex.IsMatch(phoneNumber))
             {
                 Console.WriteLine($"Your phone number is {phoneNumber}");
-            } else
+            }
+            else
             {
                 Console.WriteLine("invalid Number formate");
             }
@@ -72,12 +73,13 @@ namespace RegularExpression
         public static void EnterPassword(string password)
         {
             // ?=.* ensures zero or more and [A-Z] ensures atlist 1 uppercase
-            string pattern = @"^(?=.*[A-Z])[a-zA-Z0-9]{8,16}$";
+            string pattern = @"^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,16}$";
             Regex regex = new(pattern);
             if (regex.IsMatch(password))
             {
                 Console.WriteLine($"Your password is {password}");
-            } else
+            }
+            else
             {
                 Console.WriteLine("Invalid Password");
             }
