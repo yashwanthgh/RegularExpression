@@ -20,7 +20,7 @@ namespace RegularExpression
         }
         public static void EnterName(string name)
         {
-            string pattern = "^[A-Z]{1}[a-z]{2,19}$";
+            string pattern = "^[A-Z]{1}[a-z]{2,19}\\s[A-Z]{1}[a-z]{2,19}$";
             
             Regex regex = new(pattern);
             if(regex.IsMatch(name))
@@ -28,7 +28,7 @@ namespace RegularExpression
                 Console.WriteLine($"Your name is {name}");
             } else
             {
-                Console.WriteLine("Name should contain First letter as Capital and must be more than 3 characters long and less than 20 characters");
+                Console.WriteLine("First name first character should be capital \nSecound name first character should be capital \nAnd both name must be more than 3 and less than 20 character long");
             }
         }
     }
